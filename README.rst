@@ -30,5 +30,3 @@ Usage Example:
     def add(zerodb):
         zerodb.add(Element(name="example"))
         redirect("/")
-
-

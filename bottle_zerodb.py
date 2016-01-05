@@ -34,7 +34,7 @@ class ZeroDbPlugin(object):
 
         class Example(Model):
             name = Field()
-        
+
         @app.route('/add/:item')
         def add(item, zerodb):
             zerodb.add(Example(item))
