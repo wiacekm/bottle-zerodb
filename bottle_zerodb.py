@@ -11,12 +11,12 @@ This module contains the following public classes:
     - ZeroDbPlugin -- The plugin for supporting handler functions.
 
 """
-
-__all__ = ['ZeroDbPlugin',]
+__all__ = ['ZeroDbPlugin']
 
 from bottle import PluginError
 import inspect
 import zerodb
+
 
 class ZeroDbPlugin(object):
     """ZeroDB Plugin for Bottle.

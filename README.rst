@@ -1,11 +1,9 @@
 Bottle ZeroDB
-==============
+=============
 
 This bottle-zerodb plugin integrates ZeroDB with your Bottle
 application. It injects a ZeroDB session in your route and handle the
 session cycle.
-
-Support ZeroDB
 
 Usage Example:
 
@@ -15,9 +13,11 @@ Usage Example:
     from bottle.ext.zerodb import ZeroDbPlugin
     from zerodb.models import Model, Field
 
+
     class Element(Model):
         name = Field()
-    
+
+
     app = Bottle()
     plugin = ZeroDbPlugin()
     app.install(plugin)

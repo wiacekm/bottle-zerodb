@@ -1,0 +1,19 @@
+language: python
+install:
+  - pip install -r dev-requirements.txt
+before_script:
+  - zerodb-manage init_db --user root --passphrase test --sock 8001
+  - zerodb-server &
+
+python:
+  - "2.6"
+  - "2.7"
+  - "3.2"
+  - "3.3"
+  - "3.4"
+
+env:
+  - ZERODB_VERSION=0.96.4
+  - BOTTLE_VERSION=0.9
+ 
+script: "python test.py"

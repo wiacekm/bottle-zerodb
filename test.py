@@ -1,24 +1,22 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import unittest
-import os
-import sys
-
 import bottle
 from bottle.ext.zerodb import ZeroDbPlugin
-
 from zerodb import DB
 from zerodb.models import Model, Field
 import transaction
-import zerodb
+
 
 class Example(Model):
+    """Example model for testing purposes"""
     name = Field()
 
     def __str__(self):
         return '{name: %s}' % self.name
 
     __repr__ = __str__
+
 
 class ZeroDbTest(unittest.TestCase):
 
@@ -36,7 +34,9 @@ class ZeroDbTest(unittest.TestCase):
         def test(zerodb):
             self.assertEqual(type(zerodb), DB)
             self.assertTrue(zerodb)
-        self.app({'PATH_INFO': '/', 'REQUEST_METHOD': 'GET'}, lambda x, y: None)
+        self.app({'PATH_INFO': '/',
+                  'REQUEST_METHOD': 'GET'
+                  }, lambda x, y: None)
 
     def test_save(self):
         @self.app.get('/')
@@ -46,7 +46,9 @@ class ZeroDbTest(unittest.TestCase):
                 zerodb.add(self.example)
             self.assertTrue(zerodb)
             self.assertEqual(len(zerodb[Example]), count+1)
-        self.app({'PATH_INFO':'/', 'REQUEST_METHOD':'GET'}, lambda x,y: None)
+        self.app({'PATH_INFO': '/',
+                  'REQUEST_METHOD': 'GET'
+                  }, lambda x, y: None)
 
     def test_install_plugin_twice(self):
         with self.assertRaises(bottle.PluginError):
@@ -54,7 +56,12 @@ class ZeroDbTest(unittest.TestCase):
 
     def test_get_plugin_description(self):
         keyword = "testdb"
-        self.assertRegexpMatches(str(ZeroDbPlugin(("localhost", 8001), keyword)), keyword)
+        self.assertRegexpMatches(str(ZeroDbPlugin(("localhost", 8001),
+                                                  keyword
+                                                  )
+                                     ),
+                                 keyword)
+
 
 if __name__ == '__main__':
     unittest.main()
