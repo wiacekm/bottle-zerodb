@@ -1,6 +1,7 @@
 language: python
 install:
   - pip install -r dev-requirements.txt
+
 before_script:
   - zerodb-manage init_db --user root --passphrase test --sock 8001
   - zerodb-server &

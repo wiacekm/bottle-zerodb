@@ -1,5 +1,8 @@
 Bottle ZeroDB
 =============
+.. image:: http://img.shields.io/travis/michalwiacek/bottle-zerodb.svg?branch=master
+    :target: https://travis-ci.org/michalwiacek/bottle-zerodb.svg?branch=master
+    :alt: Build status
 
 This bottle-zerodb plugin integrates ZeroDB with your Bottle
 application. It injects a ZeroDB session in your route and handle the
