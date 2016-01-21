@@ -3,7 +3,7 @@ install:
   - pip install -r dev-requirements.txt
 
 before_script:
-  - zerodb-manage init_db --username root --passphrase test --sock 8001
+  - zerodb-manage init_db --username root --passphrase test --sock localhost:8001
   - zerodb-server &
 
 python:
